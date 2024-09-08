@@ -5,9 +5,7 @@ function HomePage() {
   const { data: shoes = [], isLoading: isPending, error } = useShoesList();
 
   if (isPending) return <p>Loading...</p>;
-  if (error) return <p>Error loading shoes data</p>;
-
-  console.log(shoes);
+  if (error) return <p>데이터를 불러오는 도중 에러가 발생했어요...*:</p>;
 
   return (
     <>
@@ -16,13 +14,12 @@ function HomePage() {
         {shoes?.length > 0 ? (
           shoes.map((shoe: Shoes) => (
             <div className="shoe-item" key={shoe.id}>
-              {/* 이미지 대신 title과 completed 상태를 출력 */}
               <h3>{shoe.title}</h3>
               <p>{shoe.completed ? "Completed" : "Not Completed"}</p>
             </div>
           ))
         ) : (
-          <p>No shoes available</p>
+          <p>데이터가 없어요...</p>
         )}
       </div>
     </>

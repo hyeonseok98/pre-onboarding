@@ -21,6 +21,7 @@ const login = async ({ id, password }: loginProps) => {
 
 const logout = () => {
   localStorage.removeItem("acToken");
+  alert("로그아웃 되었습니다.");
 };
 
 const signUp = async ({ id, password, nickname }: signUpProps) => {
