@@ -3,8 +3,8 @@ import { ReactNode, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const PublicRoute = ({ children }: { children: ReactNode }) => {
-  const navigate = useNavigate();
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isLoggedIn) {
