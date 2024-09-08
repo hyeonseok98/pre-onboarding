@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Header() {
   const navigate = useNavigate();
   const isLoggedIn = useIsLoggedIn();
-  // const { data: userData } = useUserInfos(isLoggedIn);
+  // const { data: userData } = useUserInfos();
 
   const handleMoveHomePage = () => {
     navigate("/");
@@ -21,6 +21,10 @@ function Header() {
     navigate("/");
   };
 
+  const handleMoveMyPage = () => {
+    navigate("/my-page");
+  };
+
   return (
     <header
       className={`common-layout flex justify-between items-center w-full h-${HEADER_HEIGHT}`}
@@ -32,7 +36,10 @@ function Header() {
       {!isLoggedIn ? (
         <button onClick={handleLogin}>로그인</button>
       ) : (
-        <button onClick={handleLogout}>로그아웃</button>
+        <div className="flex gap-4">
+          <button onClick={handleMoveMyPage}>마이 페이지</button>
+          <button onClick={handleLogout}>로그아웃</button>
+        </div>
       )}
     </header>
   );

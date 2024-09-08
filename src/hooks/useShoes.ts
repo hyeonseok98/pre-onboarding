@@ -1,7 +1,7 @@
+import { fetchShoesLists } from "@/apis/shoes.api";
+import { shoesKeys } from "@/constants/queryKeys";
+import { Shoes } from "@/types/Shoes";
 import { useQuery } from "@tanstack/react-query";
-import { fetchShoesLists } from "../apis/shoes.api";
-import { shoesKeys } from "../constants/queryKeys";
-import { Shoes } from "../types/Shoes";
 
 const useShoesList = () => {
   return useQuery<Shoes[]>({

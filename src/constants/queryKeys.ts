@@ -4,4 +4,5 @@ export const shoesKeys = {
 
 export const userKeys = {
   user: ["user"] as const,
+  userinfos: ["userInfos"] as const,
 };

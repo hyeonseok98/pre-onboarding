@@ -1,7 +1,7 @@
 import { loginProps, signUpProps } from "@/types/Auth";
 import axiosInstance from "./axiosInstance";
 
-const ACCESS_TOKEN_EXPIRY_TIME = "15m";
+const ACCESS_TOKEN_EXPIRY_TIME = "30m";
 
 const login = async ({ id, password }: loginProps) => {
   const response = await axiosInstance.post(
