@@ -3,9 +3,7 @@ import { useShoesList } from "@/hooks/useShoes";
 import { Shoes } from "@/types/Shoes";
 
 function HomePage() {
-  const { data: shoes = [], isLoading: isPending, error } = useShoesList();
-
-  if (isPending) return <p>Loading...</p>;
+  const { data: shoes = [], error } = useShoesList();
   if (error) return <p>데이터를 불러오는 도중 에러가 발생했어요...*:</p>;
 
   return (
@@ -17,7 +15,7 @@ function HomePage() {
           className="w-full h-full object-cover"
         />
       </section>
-      <h2 className="my-10 text-2xl font-bold">최신 상품</h2>
+      <h2 className="my-10 text-2xl font-bold">전체 상품</h2>
       <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {shoes?.length > 0 ? (
           shoes.map((shoe: Shoes) => (

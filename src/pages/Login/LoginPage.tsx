@@ -38,7 +38,7 @@ function LoginPage() {
       className="flex flex-col justify-center items-center"
       style={{ height: `calc(100vh - ${HEADER_HEIGHT})` }}
     >
-      <h2 className="text-2xl font-bold mb-12">로그인</h2>
+      <h2 className="text-2xl font-bold mb-10">로그인</h2>
       <form
         className="flex flex-col w-[310px] p-4 gap-6 sm:w-[450px] sm:gap-8"
         onSubmit={handleLogin}

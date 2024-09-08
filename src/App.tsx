@@ -11,10 +11,11 @@ Sentry.init({
     Sentry.browserTracingIntegration(),
     Sentry.replayIntegration(),
   ],
-  // Tracing
   tracesSampleRate: 1.0,
-  tracePropagationTargets: ["localhost", /^https:\/\/yourserver\.io\/api/],
-  // Session Replay
+  tracePropagationTargets: [
+    "localhost",
+    /^https:\/\/pre-onboarding\.vercel\.app\/api/,
+  ],
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
 });

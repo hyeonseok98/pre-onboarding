@@ -1,1 +1,1 @@
-export const HEADER_HEIGHT = "52px"; // header 높이
+export const HEADER_HEIGHT = "58px"; // header 높이

@@ -26,6 +26,7 @@ function SignUpPage() {
           navigate("/login");
         })
         .catch((error) => {
+          alert("회원가입에 실패했습니다. 다른 아이디를 입력해주세요.");
           console.error("회원가입 실패:", error);
         });
     }
@@ -40,7 +41,7 @@ function SignUpPage() {
       className="flex flex-col justify-center items-center"
       style={{ height: `calc(100vh - ${HEADER_HEIGHT})` }}
     >
-      <h2 className="text-2xl font-bold mb-12">회원가입</h2>
+      <h2 className="text-2xl font-bold mb-10">회원가입</h2>
       <form
         className="flex flex-col w-[310px] p-4 gap-6 sm:w-[450px] sm:gap-8"
         onSubmit={handleLogin}
@@ -73,7 +74,7 @@ function SignUpPage() {
           type="submit"
           className="w-full py-2 px-4 mt-4 bg-blue-500 text-white font-semibold rounded-md hover:opacity-80"
         >
-          로그인
+          회원가입
         </button>
       </form>
       <h4 className="text-gray-500 text-center">
