@@ -1,10 +1,10 @@
 import defaultAvatarImg from "@/assets/avatar-gray.svg";
 import Input from "@/components/Commons/Input/Input";
+import { HEADER_HEIGHT } from "@/constants/Layout";
 import { useUpdateProfile, useUserInfos } from "@/hooks/useUser";
 import { useEffect, useRef } from "react";
 
 function MyPage() {
-  // const navigate = useNavigate();
   const { data: userInfos } = useUserInfos();
   const { mutate, isPending } = useUpdateProfile();
 
@@ -37,7 +37,9 @@ function MyPage() {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center h-[calc(100vh_-_52px)]">
+    <section
+      className={`flex flex-col justify-center items-center h-[calc(100vh_-_${HEADER_HEIGHT})]`}
+    >
       <h2 className="text-2xl font-bold mb-6">My Page</h2>
       <img
         src={userInfos?.avatar || defaultAvatarImg}

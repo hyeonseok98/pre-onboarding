@@ -1,5 +1,6 @@
 import { signUp } from "@/apis/auth/auth.api";
 import Input from "@/components/Commons/Input/Input";
+import { HEADER_HEIGHT } from "@/constants/Layout";
 import { useValidation } from "@/hooks/useValidation";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
@@ -7,9 +8,9 @@ import { useNavigate } from "react-router-dom";
 function SignUpPage() {
   const navigate = useNavigate();
   const idRef = useRef<HTMLInputElement>(null);
+  const { errors, validateForm } = useValidation();
   const nickNameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const { errors, validateForm } = useValidation();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +26,7 @@ function SignUpPage() {
           navigate("/login");
         })
         .catch((error) => {
-          console.log("회원가입 실패:", error);
+          console.error("회원가입 실패:", error);
         });
     }
   };
@@ -35,7 +36,9 @@ function SignUpPage() {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center h-[calc(100vh_-_52px)]">
+    <section
+      className={`flex flex-col justify-center items-center h-[calc(100vh_-_${HEADER_HEIGHT})]`}
+    >
       <h2 className="text-2xl font-bold mb-12">회원가입</h2>
       <form
         className="flex flex-col w-[310px] p-4 gap-6 sm:w-[450px] sm:gap-8"
@@ -72,7 +75,7 @@ function SignUpPage() {
           로그인
         </button>
       </form>
-      <p className="text-gray-500 text-center">
+      <h4 className="text-gray-500 text-center">
         이미 회원이신가요? <br />
         <span
           className="underline hover:text-black cursor-pointer"
@@ -80,7 +83,7 @@ function SignUpPage() {
         >
           로그인 하러가기
         </span>
-      </p>
+      </h4>
     </section>
   );
 }

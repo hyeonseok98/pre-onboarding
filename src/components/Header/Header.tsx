@@ -27,7 +27,7 @@ function Header() {
 
   return (
     <header
-      className={`common-layout flex justify-between items-center w-full h-${HEADER_HEIGHT}`}
+      className={`common-layout flex justify-between items-center w-full h-[${HEADER_HEIGHT}]`}
       role="banner"
     >
       <h2 className="cursor-pointer" onClick={handleMoveHomePage}>

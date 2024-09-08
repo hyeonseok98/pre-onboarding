@@ -1,7 +1,7 @@
 import { getUserInfo, updateProfile } from "@/apis/auth/user.api";
 import { userKeys } from "@/constants/queryKeys";
 import { useAuthStore } from "@/store/auth.store";
-import { UpdateProfileType, UserProfileResponse } from "@/types/User";
+import { UpdateProfileType } from "@/types/User";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { useEffect } from "react";
@@ -34,10 +34,7 @@ const useUpdateProfile = (): UpdateProfileType => {
 
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: updateProfile,
-    onSuccess: (data) => {
-      const profileData = data as UserProfileResponse;
-      console.log("프로필 업데이트 성공", profileData);
-
+    onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: userKeys.userinfos });
       refetch();
 

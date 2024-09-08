@@ -5,6 +5,7 @@ import Layout from "../components/Layouts/Layout";
 import HomePage from "../pages/Home/HomePage";
 import MyPage from "../pages/My/MyPage";
 import ProtectedRoute from "./ProtectedRoute";
+import PublicRoute from "./publicRoute";
 
 const router = createBrowserRouter([
   {
@@ -16,11 +17,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <LoginPage />,
+        element: (
+          <PublicRoute>
+            <LoginPage />
+          </PublicRoute>
+        ),
       },
       {
         path: "/sign-up",
-        element: <SignUpPage />,
+        element: (
+          <PublicRoute>
+            <SignUpPage />
+          </PublicRoute>
+        ),
       },
       {
         path: "/my-page",
