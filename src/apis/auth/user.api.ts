@@ -2,13 +2,18 @@ import { UserProfileResponse } from "@/types/User";
 import axiosInstance from "./axiosInstance";
 
 const getUserInfo = async () => {
-  const response = await axiosInstance.get("/user", {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("acToken")}`,
-    },
-  });
+  try {
+    const response = await axiosInstance.get("/user", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("acToken")}`,
+      },
+    });
 
-  return response.data;
+    return response.data;
+  } catch (error) {
+    console.error("getUserInfo Error 발생:", error);
+    throw new Error("유저 정보를 불러오는 중 에러 발생");
+  }
 };
 
 const updateProfile = async (

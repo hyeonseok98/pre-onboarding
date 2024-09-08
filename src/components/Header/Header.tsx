@@ -27,7 +27,8 @@ function Header() {
 
   return (
     <header
-      className={`common-layout flex justify-between items-center w-full h-${HEADER_HEIGHT}`}
+      className="common-layout flex justify-between items-center w-full"
+      style={{ height: HEADER_HEIGHT }}
       role="banner"
     >
       <h2 className="cursor-pointer" onClick={handleMoveHomePage}>
@@ -37,8 +38,12 @@ function Header() {
         <button onClick={handleLogin}>로그인</button>
       ) : (
         <div className="flex gap-4">
-          <button onClick={handleMoveMyPage}>마이 페이지</button>
-          <button onClick={handleLogout}>로그아웃</button>
+          <button onClick={handleMoveMyPage} className="hover:opacity-80">
+            마이 페이지
+          </button>
+          <button onClick={handleLogout} className="hover:opacity-80">
+            로그아웃
+          </button>
         </div>
       )}
     </header>

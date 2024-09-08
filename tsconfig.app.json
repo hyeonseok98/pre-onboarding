@@ -23,7 +23,10 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"]
-    }
+    },
+
+    "types": ["jest", "@testing-library/jest-dom"],
+    "esModuleInterop": true
   },
   "include": ["src"]
 }
