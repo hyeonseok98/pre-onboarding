@@ -8,7 +8,7 @@ const fetchShoesLists = async () => {
     return response.data;
   } catch (error) {
     console.error("신발 목록 가져오기 도중 에러 발생:", error);
-    throw new Error("신발 목록을 불러오는 중 에러 발생"); // 에러 발생
+    throw new Error("신발 목록을 불러오는 중 에러 발생");
   }
 };
 export { fetchShoesLists };
