@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/Layouts/Layout";
 import HomePage from "../pages/Home/HomePage";
 import MyPage from "../pages/My/MyPage";
+import ProtectedRoute from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-page",
-        element: <MyPage />,
+        element: (
+          <ProtectedRoute>
+            <MyPage />
+          </ProtectedRoute>
+        ),
       },
     ],
   },

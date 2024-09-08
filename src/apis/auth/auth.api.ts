@@ -1,3 +1,4 @@
+import { useAuthStore } from "@/store/auth.store";
 import { loginProps, signUpProps } from "@/types/Auth";
 import axiosInstance from "./axiosInstance";
 
@@ -14,6 +15,7 @@ const login = async ({ id, password }: loginProps) => {
 
   if (response.data.success) {
     localStorage.setItem("acToken", response.data.accessToken);
+    useAuthStore.getState().setLoggedIn(true);
   }
 
   return response.data;
@@ -21,6 +23,7 @@ const login = async ({ id, password }: loginProps) => {
 
 const logout = () => {
   localStorage.removeItem("acToken");
+  useAuthStore.getState().setLoggedIn(false);
   alert("로그아웃 되었습니다.");
 };
 

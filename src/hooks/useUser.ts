@@ -1,8 +1,10 @@
 import { getUserInfo, updateProfile } from "@/apis/auth/user.api";
 import { userKeys } from "@/constants/queryKeys";
+import { useAuthStore } from "@/store/auth.store";
 import { UpdateProfileType, UserProfileResponse } from "@/types/User";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { useEffect } from "react";
 
 const useUserInfos = () => {
   const isLoggedIn = useIsLoggedIn();
@@ -17,8 +19,13 @@ const useUserInfos = () => {
 };
 
 const useIsLoggedIn = () => {
-  const token = localStorage.getItem("acToken");
-  return !!token;
+  const { isLoggedIn, checkLogin } = useAuthStore();
+
+  useEffect(() => {
+    checkLogin();
+  }, [checkLogin]);
+
+  return isLoggedIn;
 };
 
 const useUpdateProfile = (): UpdateProfileType => {
