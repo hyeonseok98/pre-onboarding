@@ -38,7 +38,8 @@ function MyPage() {
 
   return (
     <section
-      className={`flex flex-col justify-center items-center h-[calc(100vh_-_${HEADER_HEIGHT})]`}
+      className="flex flex-col justify-center items-center"
+      style={{ height: `calc(100vh - ${HEADER_HEIGHT})` }}
     >
       <h2 className="text-2xl font-bold mb-6">My Page</h2>
       <img

@@ -1,3 +1,4 @@
+import banner1 from "@/assets/banners/shoes_banner1.jpg";
 import { useShoesList } from "@/hooks/useShoes";
 import { Shoes } from "@/types/Shoes";
 
@@ -9,13 +10,22 @@ function HomePage() {
 
   return (
     <>
-      <section className="w-full h-[300px] bg-red-100">banner</section>
-      <div className="grid grid-cols-4 gap-4">
+      <section className="w-full h-[450px] bg-red-100 rounded-lg overflow-hidden">
+        <img
+          src={banner1}
+          alt="banner"
+          className="w-full h-full object-cover"
+        />
+      </section>
+      <h2 className="my-10 text-2xl font-bold">최신 상품</h2>
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {shoes?.length > 0 ? (
           shoes.map((shoe: Shoes) => (
-            <div className="shoe-item" key={shoe.id}>
-              <h3>{shoe.title}</h3>
-              <p>{shoe.completed ? "Completed" : "Not Completed"}</p>
+            <div className="text-center" key={shoe.id}>
+              <div className="flex justify-center items-center w-52 h-52 bg-slate-300 mx-auto" />
+              <h3 className="mt-2 line-clamp-2 overflow-hidden text-ellipsis">
+                {shoe.title}
+              </h3>
             </div>
           ))
         ) : (

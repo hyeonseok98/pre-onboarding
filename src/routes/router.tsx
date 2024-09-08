@@ -5,7 +5,7 @@ import Layout from "../components/Layouts/Layout";
 import HomePage from "../pages/Home/HomePage";
 import MyPage from "../pages/My/MyPage";
 import ProtectedRoute from "./ProtectedRoute";
-import PublicRoute from "./publicRoute";
+import PublicRoute from "./PublicRoute";
 
 const router = createBrowserRouter([
   {

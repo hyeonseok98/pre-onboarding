@@ -35,7 +35,8 @@ function LoginPage() {
 
   return (
     <section
-      className={`flex flex-col justify-center items-center h-[calc(100vh_-_${HEADER_HEIGHT})]`}
+      className="flex flex-col justify-center items-center"
+      style={{ height: `calc(100vh - ${HEADER_HEIGHT})` }}
     >
       <h2 className="text-2xl font-bold mb-12">로그인</h2>
       <form
@@ -53,9 +54,9 @@ function LoginPage() {
         <Input
           type="password"
           name="password"
-          label="패스워드"
+          label="비밀번호"
           ref={passwordRef}
-          placeholder="패스워드를 입력하세요"
+          placeholder="비밀번호를 입력하세요"
           errorMessage={errors.passwordError}
         />
         <button
