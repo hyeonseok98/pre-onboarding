@@ -26,7 +26,7 @@ function SignUpPage() {
           navigate("/login");
         })
         .catch((error) => {
-          alert("회원가입에 실패했습니다. 다른 아이디를 입력해주세요.");
+          alert("회원가입에 실패했습니다.");
           console.error("회원가입 실패:", error);
         });
     }

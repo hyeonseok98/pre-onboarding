@@ -32,7 +32,10 @@ const useValidation = () => {
       isValid = false;
     }
 
-    if (nickname && !validateNickname(nickname)) {
+    if (!nickname) {
+      newErrors.nicknameError = "닉네임을 입력하세요.";
+      isValid = false;
+    } else if (!validateNickname(nickname)) {
       newErrors.nicknameError = "닉네임은 2글자 이상이어야 합니다.";
       isValid = false;
     }
